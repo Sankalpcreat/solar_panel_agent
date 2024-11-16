@@ -1,5 +1,8 @@
 langgraph
 langchain_core
+langgraph
 langchain_community
 tavily-python
+typing-extensions
 requests
+openai

@@ -1,0 +1,23 @@
+{
+  "dockerfile_lines": [],
+  "graphs": {
+    "agent": "./agent.py:graph"
+  },
+  "env": ".env",
+  "python_version": "3.11",
+  "dependencies": [
+    ".",
+    "requests",
+    "langchain-core",
+    "langchain-community",
+    "langgraph",
+    "langgraph-checkpoint",
+    "typing-extensions",
+    "openai"
+  ],
+  "description": "Solar Panel Savings Assistant",
+  "llm": {
+    "model": "gpt-4",
+    "url": "https://api.openai.com/v1/chat/completions"
+  }
+}
