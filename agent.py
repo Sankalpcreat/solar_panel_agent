@@ -91,3 +91,23 @@ class Assistant:
                 break
         return {"messages": result}
     
+    
+def call_ollama(prompt: str) -> str:
+  
+    url = "http://localhost:11434/api/v1/completions"
+    headers = {"Content-Type": "application/json"}
+    payload = {"model": "llama3.2", "prompt": prompt}
+    response = requests.post(url, json=payload, headers=headers)
+    response.raise_for_status()
+    return response.json()["completion"]
+
+class OllamaRunnable(Runnable):
+    def __init__(self, prompt_template: ChatPromptTemplate):
+        self.prompt_template = prompt_template
+
+    def invoke(self, state: State):
+       
+        prompt = self.prompt_template.format_messages({"messages": state["messages"]})
+        result = call_ollama(prompt)
+        return {"content": result}
+    
