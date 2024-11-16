@@ -1,0 +1,5 @@
+langgraph
+langchain_core
+langchain_community
+tavily-python
+requests
